@@ -1,0 +1,63 @@
+menu "Access Control: Wi-Fi + MQTT + RC522"
+
+config AC_WIFI_SSID
+    string "Wi-Fi SSID"
+    default "Globalnet"
+
+config AC_WIFI_PASS
+    string "Wi-Fi Password"
+    default "72593257"
+
+config AC_MQTT_URI
+    string "MQTT URI (mqtt://host:port)"
+    default "mqtt://192.168.1.15:1883"
+
+config AC_DEVICE_ID
+    string "Device ID (client/reply suffix)"
+    default "esp32-01"
+
+config AC_DOOR_ID
+    string "Door ID (logical gate name)"
+    default "gate-1"
+
+config AC_MQTT_REQ_TOPIC
+    string "Request topic (publish UID here)"
+    default "access/req"
+
+config AC_MQTT_RESP_BASE
+    string "Response base topic (backend replies under base/device)"
+    default "access/resp"
+
+menu "RC522 (SPI) pins"
+config AC_RC522_SPI_HOST
+    int "SPI host (2=HSPI, 3=VSPI)"
+    default 3
+    range 2 3
+
+config AC_RC522_SCLK
+    int "SCLK GPIO"
+    default 18
+    range 0 39
+
+config AC_RC522_MOSI
+    int "MOSI GPIO"
+    default 23
+    range 0 39
+
+config AC_RC522_MISO
+    int "MISO GPIO"
+    default 19
+    range 0 39
+
+config AC_RC522_CS
+    int "CS/SS GPIO"
+    default 5
+    range 0 39
+
+config AC_RC522_RST
+    int "RST GPIO"
+    default 22
+    range 0 39
+endmenu
+
+endmenu
